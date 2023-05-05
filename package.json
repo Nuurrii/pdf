@@ -1,0 +1,64 @@
+{
+  "name": "zotero-addon-template",
+  "version": "0.1.6",
+  "description": "Zotero Addon Template",
+  "config": {
+    "addonName": "Zotero Addon Template",
+    "addonID": "addontemplate@euclpts.com",
+    "addonRef": "addontemplate",
+    "addonInstance": "AddonTemplate",
+    "releasepage": "https://github.com/windingwind/zotero-addon-template/releases/latest/download/zotero-addon-template.xpi",
+    "updaterdf": "https://raw.githubusercontent.com/windingwind/zotero-addon-template/bootstrap/update.json"
+  },
+  "main": "src/index.ts",
+  "scripts": {
+    "build-dev": "cross-env NODE_ENV=development node scripts/build.js",
+    "build-prod": "cross-env NODE_ENV=production node scripts/build.js",
+    "build": "concurrently -c auto npm:build-prod npm:tsc",
+    "tsc": "tsc --noEmit",
+    "start-z6": "node scripts/start.js --z 6",
+    "start-z7": "node scripts/start.js --z 7",
+    "start": "node scripts/start.js",
+    "stop": "node scripts/stop.js",
+    "restart-dev": "npm run build-dev && npm run stop && npm run start",
+    "restart-prod": "npm run build-prod && npm run stop && npm run start",
+    "restart": "npm run restart-dev",
+    "release": "release-it",
+    "lint": "prettier --write . && eslint . --ext .ts --fix",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update-deps": "npm update --save"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/windingwind/zotero-addon-template.git"
+  },
+  "author": "windingwind",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/windingwind/zotero-addon-template/issues"
+  },
+  "homepage": "https://github.com/windingwind/zotero-addon-template#readme",
+  "dependencies": {
+    "zotero-plugin-toolkit": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.17",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "compressing": "^1.6.3",
+    "concurrently": "^8.0.1",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.17.4",
+    "eslint": "^8.39.0",
+    "eslint-config-prettier": "^8.8.0",
+    "minimist": "^1.2.7",
+    "prettier": "2.8.8",
+    "release-it": "^15.6.0",
+    "replace-in-file": "^6.3.5",
+    "typescript": "^5.0.4",
+    "zotero-types": "^1.0.12"
+  },
+  "prettier": {
+    "tabWidth": 2
+  }
+}
