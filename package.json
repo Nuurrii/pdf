@@ -42,7 +42,7 @@
     "zotero-plugin-toolkit": "^2.0.1"
   },
   "devDependencies": {
-    "@types/node": "^18.11.17",
+    "@types/node": "^20.2.3",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
     "compressing": "^1.6.3",
